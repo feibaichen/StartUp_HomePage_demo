@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
-@interface AppDelegate ()
+#import "ViewController.h"
+@interface AppDelegate ()<UIScrollViewDelegate>
 
 @end
 
@@ -17,6 +17,28 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    UIScrollView *StartUp_ScrollView=[[UIScrollView alloc]initWithFrame:self.window.frame] ;
+    
+    for (int i=0; i<3; i++) {
+        UIImageView *imageView=[[UIImageView alloc]initWithFrame:CGRectMake(i*450, 0, 450, 450)];
+        imageView.image=[UIImage imageNamed:[NSString stringWithFormat:@"pic_%d.png",i+1]];
+        
+        [StartUp_ScrollView addSubview:imageView];
+        
+    }
+    
+    StartUp_ScrollView.delegate=self;
+    StartUp_ScrollView.backgroundColor=[UIColor redColor];
+    StartUp_ScrollView.contentSize=CGSizeMake(3*450,400 );
+    StartUp_ScrollView.pagingEnabled=YES;
+    
+ 
+    
+    [self.window addSubview:StartUp_ScrollView];
+    
+    ;
+    
     return YES;
 }
 
