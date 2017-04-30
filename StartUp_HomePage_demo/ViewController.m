@@ -76,7 +76,7 @@
     [scrollView addSubview:button];
     
 }
-//跳转到主页面
+//从ViewController移除scrollView和pageControl
 -(void)showDocList{
 //    WelcomeViewController *mainList=[WelcomeViewController new];
 //    [self presentViewController:mainList animated:NO completion:nil];
